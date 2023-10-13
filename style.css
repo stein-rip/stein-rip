@@ -37,6 +37,7 @@ img {
 	height: 50%;
 	transition: opacity 1s;
 	background-image: url(https://i.giphy.com/media/dwaeIbBnF6HBu/giphy.webp);
+	background-size: cover;
 }
 
 #image2 {
@@ -45,14 +46,14 @@ img {
 
 .mem {
 	position: absolute;
-	top: 380px;
-	left: 30px;
+	top: 50vh; /* 380px converted to a percentage of viewport height */
+	left: 9vw; /* 30px converted to a percentage of viewport width */
 }
 
 .bread {
 	position: absolute;
-	top: 60px;
-	left: 230px;
+	top: 10vh; /* 60px converted to a percentage of viewport height */
+	left: 65vw; /* 230px converted to a percentage of viewport width */
 }
 
 .mem a {
@@ -72,4 +73,35 @@ img {
 	background-size: cover;
 	display: flex;
 	justify-content: center;
+}
+
+@media only screen and (min-width: 780px) {
+	#background-container {
+		position: fixed; /* Change to "fixed" */
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		z-index: -1; /* Add this line to place it behind other content */
+	}
+
+	img {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		transition: opacity 1s;
+		background-image: url(https://i.giphy.com/media/dwaeIbBnF6HBu/giphy.webp);
+		background-size: cover;
+	}
+
+	#image2 {
+		opacity: 0;
+	}
+	.mem {
+		position: absolute;
+		top: 75vh; /* 380px converted to a percentage of viewport height */
+		left: 35vw; /* 30px converted to a percentage of viewport width */
+	}
 }
