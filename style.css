@@ -1,0 +1,75 @@
+body {
+	background-image: url(https://i.giphy.com/media/dwaeIbBnF6HBu/giphy.webp);
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+main {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	background-color: transparent;
+	height: 300px;
+}
+
+footer {
+	display: flex;
+	justify-content: center;
+	background-color: transparent;
+}
+
+#background-container {
+	position: fixed; /* Change to "fixed" */
+	top: 100px;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: -1; /* Add this line to place it behind other content */
+}
+
+img {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 50%;
+	transition: opacity 1s;
+	background-image: url(https://i.giphy.com/media/dwaeIbBnF6HBu/giphy.webp);
+}
+
+#image2 {
+	opacity: 0;
+}
+
+.mem {
+	position: absolute;
+	top: 380px;
+	left: 30px;
+}
+
+.bread {
+	position: absolute;
+	top: 60px;
+	left: 230px;
+}
+
+.mem a {
+	background-image: url(assets/playmem.png);
+	height: 120px;
+	width: 150px;
+	background-size: cover;
+	padding: 10px;
+	display: flex;
+	justify-content: center;
+}
+
+.bread a {
+	background-image: url(assets/ToastMascot.png);
+	height: 120px;
+	width: 120px;
+	background-size: cover;
+	display: flex;
+	justify-content: center;
+}
