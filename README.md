@@ -2,7 +2,7 @@
 a budding anti-social media developer
 & purple hat engineer.
 
-i would live, laugh, and love to blow your wig back.
+i would live, laugh, love to blow your wig back.
 
 <!--
 **stein-rip/stein-rip** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
