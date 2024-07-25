@@ -1,8 +1,8 @@
 ## I'm stein_ 🐋
 a budding anti-social media developer
-and purple hat engineer.
+& purple hat engineer.
 
-i live, laugh, love to blow your wig back.
+i would live, laugh, and love to blow your wig back.
 
 <!--
 **stein-rip/stein-rip** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
