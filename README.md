@@ -25,5 +25,4 @@
 <li>🤷🏼‍♀️ begrudgingly entrepenurial.</li>
 </ul>
 </details>
-| [STEIN.RIP](https://www.stein.rip/) |
-| ------------------------------- |
+www.stein.rip
