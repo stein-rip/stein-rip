@@ -27,4 +27,3 @@
 <li>🤷🏼‍♀️ begrudgingly entrepenurial.</li>
 </ul>
 </details>
-```
