@@ -13,9 +13,9 @@
 ### ☺︎ETH & MERN☺︎ (budding anti-social media dev)
 
 <details>
-<summary>![](https://giphy.com/gifs/ugly-face-woman-gJuTwM3yuQ8f3rE8KV)
+<summary>``` ![](https://giphy.com/gifs/ugly-face-woman-gJuTwM3yuQ8f3rE8KV)
 | [STEIN.RIP](https://www.stein.rip/) |
-| ------------------------------- |</summary>
+| ------------------------------- | ``` </summary>
 <ul>
 <li>👩🏻‍🎤 true artist, the real kind.</li>
 <li>👽 small body, large adhd.</li>
