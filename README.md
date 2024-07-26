@@ -10,7 +10,7 @@
       ░           ░   ░    ░           ░       ░       ░
 ```
 
-## ☺︎anti-social media developer & red hat cyberweasel☺︎
+## ☺︎ETH & MERN☺︎ (anti-social media dev)
 
 - 👩🏻‍🎤 true artist, the real kind.
 - 👽 small body, large adhd.
