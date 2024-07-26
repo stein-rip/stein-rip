@@ -6,7 +6,13 @@ body {
 	margin: 0;
 	width: 100%;
 }
-pre {
+
+.title {
+	font-family: monospace;
+}
+.stein {
+	font-family: "Times New Roman", Times, serif;
+	margin-top: 22px;
 	font-size: 8px;
 	display: flex;
 	align-items: center;
@@ -36,16 +42,13 @@ pre {
 		text-shadow: 2px 2px #8cca40;
 	}
 }
-.stein {
-	width: 10px;
-	height: 10px;
-}
 
 @media screen and (min-width: 500px) {
 	body {
 		width: 100vw;
 		background-color: rgb(150, 173, 237);
 	}
-	pre {
+	.stein {
+		font-size: 22px;
 	}
 }
