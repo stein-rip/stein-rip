@@ -12,12 +12,10 @@
 
 ### ☺︎ETH & MERN☺︎ (budding anti-social media dev)
 
-![](https://giphy.com/gifs/ugly-face-woman-gJuTwM3yuQ8f3rE8KV)
-| [STEIN.RIP](https://www.stein.rip/) |
-| ------------------------------- |
-
 <details>
-<summary>Stein Facts</summary>
+<summary>![](https://giphy.com/gifs/ugly-face-woman-gJuTwM3yuQ8f3rE8KV)
+| [STEIN.RIP](https://www.stein.rip/) |
+| ------------------------------- |</summary>
 <ul>
 <li>👩🏻‍🎤 true artist, the real kind.</li>
 <li>👽 small body, large adhd.</li>
