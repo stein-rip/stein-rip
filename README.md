@@ -10,7 +10,7 @@
       ░           ░   ░    ░           ░       ░       ░
 ```
 
-# <div style="text-align:center">☺︎ETH & MERN☺︎</div>
+# <div style="text-align:center"><div>☺︎ETH & MERN☺︎</div></div>
 
 ### (& budding anti-social media dev)
 
