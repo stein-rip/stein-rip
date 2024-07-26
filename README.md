@@ -27,4 +27,4 @@
 <li>🤷🏼‍♀️ begrudgingly entrepenurial.</li>
 </ul>
 </details>
-www.stein.rip
+<button><a href="www.stein.rip">www.stein.rip</a></button>
