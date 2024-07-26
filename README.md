@@ -13,9 +13,7 @@
 ### ☺︎ETH & MERN☺︎ (budding anti-social media dev)
 
 <details>
-<summary>
-| [STEIN.RIP](https://www.stein.rip/) |
-| ------------------------------- | </summary> 
+<summary>Stein Facts</summary> 
 <ul>
 <li>👩🏻‍🎤 true artist, the real kind.</li>
 <li>👽 small body, large adhd.</li>
@@ -27,3 +25,5 @@
 <li>🤷🏼‍♀️ begrudgingly entrepenurial.</li>
 </ul>
 </details>
+| [STEIN.RIP](https://www.stein.rip/) |
+| ------------------------------- |
