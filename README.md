@@ -10,8 +10,10 @@
       ░           ░   ░    ░           ░       ░       ░
 ```
 
-## ☺︎ETH & MERN☺︎ (anti-social media dev)
-https://www.stein.rip
+### ☺︎ETH & MERN☺︎ (budding anti-social media dev)
+
+<a>www.stein.rip</a>
+
 - 👩🏻‍🎤 true artist, the real kind.
 - 👽 small body, large adhd.
 - 🔪 cutting edges, never corners.
