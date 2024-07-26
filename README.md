@@ -13,7 +13,7 @@
 ### ☺︎ETH & MERN☺︎ (budding anti-social media dev)
 
 <details>
-<summary>``` ![](https://giphy.com/gifs/ugly-face-woman-gJuTwM3yuQ8f3rE8KV)
+<summary>```
 | [STEIN.RIP](https://www.stein.rip/) |
 | ------------------------------- | ``` </summary>
 <ul>
