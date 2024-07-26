@@ -12,7 +12,7 @@
 
 ### ☺︎ETH & MERN☺︎ (budding anti-social media dev)
 
-<a>www.stein.rip</a>
+www.stein.rip
 
 - 👩🏻‍🎤 true artist, the real kind.
 - 👽 small body, large adhd.
