@@ -1,20 +1,23 @@
-## I'm stein_ 🐋
-a budding anti-social media developer
-& purple hat engineer.
+$$
 
-i would live, laugh, love to blow your wig back.
+████████ ▄███████▓ ▓█████  ██  ███▄   ██     ██▀███    ██  ██▓███
+▒██    ▒ ▓  ██▒ ▓▒ ▓█      ██▒ ██ ▀█  ▒█    ▓██   ██ ▒▓██ ▓██░  ██
+░ ▓██▄     ▓██░ ▒░ ▒███░  ▒██ ▓██  ▀█ ██▒   ▓██ ░▄█   ▒██ ▓██  ██▓▒
+  ▒   ██▒░ ▓██▓ ░  ▒▓█  ▄ ░██ ▓██▒  ▐▌██▒   ▒██▀▀█▄   ░██ ▒██▄█▓▒ ▒
+▒██████▒▒  ▒██▒ ░ ▒░▒████░░██░▒██░   ▓██ ██ ░██▓ ▒██▒░░██░▒██  ░  ░
+▒ ▒▓▒ ▒ ░  ▒ ░░   ░░░ ▒░  ░▓  ░ ▒░   ▒ ▒    ░ ▒▓ ░▒▓░ ░▓  ▒▓▒░ ░  ░
+░ ░▒  ░ ░    ░    ░ ░ ░  ░ ▒ ░░ ░░   ░ ▒░░    ░▒ ░ ▒ ░ ▒  ░▒ ░
+░  ░  ░    ░          ░  ░ ▒ ░   ░   ░ ░ ░    ░░   ░ ░ ▒  ░░
+      ░           ░   ░    ░           ░       ░       ░
+$$
 
-<!--
-**stein-rip/stein-rip** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+## budding anti-social media developer & red hat cyberweasel
 
-Here are some ideas to get you started:
-
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+- 👩🏻‍🎤 true artist, the real kind.
+- 👽 small body, large adhd.
+- 🔪 cutting edges, never corners.
+- 🧠 continuously learning, the hhhard way.
+- 🐋 eerily optimistic despite knowing things.
+- 📊 data enthusiast.
+- 🍿 snack fanatic.
+- 🤷🏼‍♀️ begrudgingly entrepenurial.
