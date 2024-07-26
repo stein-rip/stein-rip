@@ -12,12 +12,9 @@
 
 ### ☺︎ETH & MERN☺︎ (budding anti-social media dev)
 
-www.stein.rip
-
 ![](https://giphy.com/gifs/ugly-face-woman-gJuTwM3yuQ8f3rE8KV)
 | [STEIN.RIP](https://www.stein.rip/) |
 | ------------------------------- |
-</span>
 
 <details>
 <summary>Stein Facts</summary>
