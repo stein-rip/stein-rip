@@ -1,0 +1,49 @@
+body {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: olive;
+	margin: 0;
+	width: 100%;
+}
+pre {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-family: monospace;
+	animation: color-change 1s infinite;
+}
+
+@keyframes color-change {
+	0% {
+		color: rgb(220, 37, 193);
+		text-shadow: 2px 2px #838ee3;
+	}
+	25% {
+		color: rgb(193, 134, 241);
+		text-shadow: 2px 2px #4050ca;
+	}
+	50% {
+		color: rgb(92, 135, 220);
+		text-shadow: 2px 2px #40ca5e;
+	}
+	75% {
+		color: rgb(37, 220, 62);
+		text-shadow: 2px 2px #265b3c;
+	}
+	100% {
+		color: rgb(218, 144, 213);
+		text-shadow: 2px 2px #8cca40;
+	}
+}
+.stein {
+	width: 10px;
+	height: 10px;
+}
+
+@media screen and (min-width: 380px) {
+	body {
+		width: 100vw;
+		background-color: rgb(150, 173, 237);
+	}
+}
