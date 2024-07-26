@@ -1,4 +1,3 @@
-<div style="img-align:center">
 ```
 ████████ ▄███████▓ ▓█████  ██  ███▄   ██     ██▀███    ██  ██▓███
 ▒██    ▒ ▓  ██▒ ▓▒ ▓█      ██▒ ██ ▀█  ▒█    ▓██   ██ ▒▓██ ▓██░  ██
@@ -10,8 +9,8 @@
 ░  ░  ░    ░          ░  ░ ▒ ░   ░   ░ ░ ░    ░░   ░ ░ ▒  ░░
       ░           ░   ░    ░           ░       ░       ░
 ```
-</div>
-# ☺︎ETH & MERN☺︎
+
+# <div style="text-align:center">☺︎ETH & MERN☺︎</div>
 
 ### (& budding anti-social media dev)
 
