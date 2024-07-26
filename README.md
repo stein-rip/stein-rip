@@ -12,9 +12,10 @@
 
 # <p align="center">☺︎ETH & MERN☺︎</p>
 
-### (& budding anti-social media dev)
+---
 
-<details>
+## <details>
+
 <summary>Stein Facts</summary> 
 <ul>
 <li>👩🏻‍🎤 true artist, the real kind.</li>
