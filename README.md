@@ -10,11 +10,8 @@
       ░           ░   ░    ░           ░       ░       ░
 ```
 
-## </span style="color: green">
-
 ### ☺︎ETH & MERN☺︎ (budding anti-social media dev)
 
-<span >
 www.stein.rip
 
 ![](https://giphy.com/gifs/ugly-face-woman-gJuTwM3yuQ8f3rE8KV)
@@ -23,7 +20,7 @@ www.stein.rip
 </span>
 
 <details>
-<summary>```diff ! Stein Facts</summary>
+<summary> ! Stein Facts</summary>
 <ul>
 <li>👩🏻‍🎤 true artist, the real kind.</li>
 <li>👽 small body, large adhd.</li>
@@ -35,3 +32,4 @@ www.stein.rip
 <li>🤷🏼‍♀️ begrudgingly entrepenurial.</li>
 </ul>
 </details>
+```
