@@ -16,8 +16,8 @@
 
 <details>
 <summary>Stein Facts</summary> 
-<ul style="none">
-<li style="none">👩🏻‍🎤 true artist, the real kind.</li>
+<ul>
+<li>👩🏻‍🎤 true artist, the real kind.</li>
 <li>👽 small body, large adhd.</li>
 <li>🔪 cutting edges, never corners.</li>
 <li>🧠 continuously learning, the hhhard way.</li>
