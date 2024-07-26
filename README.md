@@ -10,7 +10,7 @@
       ░           ░   ░    ░           ░       ░       ░
 ```
 
-## budding anti-social media developer & red hat cyberweasel
+## anti-social media developer & red hat cyberweasel
 
 - 👩🏻‍🎤 true artist, the real kind.
 - 👽 small body, large adhd.
