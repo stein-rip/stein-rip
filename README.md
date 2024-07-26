@@ -14,6 +14,8 @@
 
 www.stein.rip
 
+Images: ![](https://giphy.com/gifs/ugly-face-woman-gJuTwM3yuQ8f3rE8KV)
+
 - 👩🏻‍🎤 true artist, the real kind.
 - 👽 small body, large adhd.
 - 🔪 cutting edges, never corners.
