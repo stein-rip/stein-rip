@@ -20,7 +20,7 @@
 <li>🔪 cutting edges, never corners.</li>
 <li>🧠 continuously learning, the hhhard way.</li>
 <li>🐋 eerily optimistic despite knowing things.</li>
-<li>📊 data enthusiast./li>
+<li>📊 data enthusiast.</li>
 <li>🍿 snack fanatic.</li>
 <li>🤷🏼‍♀️ begrudgingly entrepenurial.</li>
 </ul>
