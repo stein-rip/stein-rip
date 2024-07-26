@@ -20,7 +20,7 @@ www.stein.rip
 </span>
 
 <details>
-<summary> ! Stein Facts</summary>
+<summary>Stein Facts</summary>
 <ul>
 <li>👩🏻‍🎤 true artist, the real kind.</li>
 <li>👽 small body, large adhd.</li>
