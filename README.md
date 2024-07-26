@@ -10,7 +10,9 @@
       ░           ░   ░    ░           ░       ░       ░
 ```
 
-### ☺︎ETH & MERN☺︎ (budding anti-social media dev)
+# ☺︎ETH & MERN☺︎
+
+### (& budding anti-social media dev)
 
 <details>
 <summary>Stein Facts</summary> 
