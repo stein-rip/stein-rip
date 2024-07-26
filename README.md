@@ -1,4 +1,4 @@
-<span style="color: green"> ```
+<span style="color: green"> <br> ```
 ████████ ▄███████▓ ▓█████ ██ ███▄ ██ ██▀███ ██ ██▓███
 ▒██ ▒ ▓ ██▒ ▓▒ ▓█ ██▒ ██ ▀█ ▒█ ▓██ ██ ▒▓██ ▓██░ ██
 ░ ▓██▄ ▓██░ ▒░ ▒███░ ▒██ ▓██ ▀█ ██▒ ▓██ ░▄█ ▒██ ▓██ ██▓▒
@@ -11,8 +11,9 @@
 
 ```
 </span>
+<br>
 ---
-
+</br>
 ### ☺︎ETH & MERN☺︎ (budding anti-social media dev)
 
 www.stein.rip
