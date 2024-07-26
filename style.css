@@ -7,10 +7,10 @@ body {
 	width: 100%;
 }
 pre {
+	font-size: 10px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	font-family: monospace;
 	animation: color-change 1s infinite;
 }
 
@@ -45,5 +45,7 @@ pre {
 	body {
 		width: 100vw;
 		background-color: rgb(150, 173, 237);
+	}
+	pre {
 	}
 }
