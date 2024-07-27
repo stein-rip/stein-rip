@@ -17,29 +17,53 @@ body {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	animation: color-change 1s infinite;
+	animation: color-change 100s infinite;
 }
 
 @keyframes color-change {
 	0% {
-		color: rgb(220, 37, 193);
-		text-shadow: 2px 2px #838ee3;
+		text-shadow: -1px -1px 0 #bc3434, /* Black outline */ 4px -1px 0 #000,
+			-1px 1px 0 #000, 1px 1px 0 #000, 2px 2px hwb(233 51% 11%); /* Colored shadow */
 	}
-	25% {
-		color: rgb(193, 134, 241);
-		text-shadow: 2px 2px #4050ca;
+	10% {
+		color: rgb(193, 77, 241); /* Light Purple */
+		text-shadow: 23px 23px #a3d43f;
+	}
+	20% {
+		color: rgb(166, 134, 241); /* Light Violet */
+		text-shadow: 24px 24px #4050ca;
+	}
+	30% {
+		color: rgb(71, 231, 7); /* Light Blue */
+		text-shadow: 15px 15px #ca7740;
+	}
+	40% {
+		color: rgb(92, 135, 220); /* Blue */
+		text-shadow: 6px 36px #40ca5e;
 	}
 	50% {
-		color: rgb(92, 135, 220);
-		text-shadow: 2px 2px #40ca5e;
+		color: rgb(37, 220, 177); /* Teal */
+		text-shadow: 7px 7px #e38e17;
 	}
-	75% {
-		color: rgb(37, 220, 62);
-		text-shadow: 2px 2px #265b3c;
+	60% {
+		color: rgb(37, 220, 62); /* Green */
+		text-shadow: 18px 18px #265b3c;
+	}
+	70% {
+		color: rgb(92, 117, 57); /* Lime Green */
+		text-shadow: 9px 9px #8cca40;
+	}
+	80% {
+		color: rgb(218, 144, 37); /* Orange */
+		text-shadow: 10px 10px #252422;
+	}
+	90% {
+		color: rgb(218, 37, 62); /* Red */
+		text-shadow: 11px 11px #17abd8;
 	}
 	100% {
-		color: rgb(218, 144, 213);
-		text-shadow: 2px 2px #8cca40;
+		color: rgb(218, 37, 193); /* Back to Magenta */
+		text-shadow: 12px 12px #1ed8b6;
 	}
 }
 
