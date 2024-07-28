@@ -95,7 +95,7 @@ main {
 	background-size: cover;
 	position: absolute;
 	top: 75%;
-	left: 36%;
+	left: 34%;
 	transform-origin: center;
 	animation: orbit-1 linear infinite;
 	z-index: 1;
@@ -103,11 +103,11 @@ main {
 
 @keyframes orbit-1 {
 	0% {
-		transform: rotateY(0deg) rotateX(20deg) translateZ(167px) rotateY(0deg);
+		transform: rotateY(0deg) rotateX(20deg) translateZ(168px) rotateY(0deg);
 	}
 
 	100% {
-		transform: rotateY(360deg) rotateX(20deg) translateZ(167px) rotateY(-360deg);
+		transform: rotateY(360deg) rotateX(20deg) translateZ(168px) rotateY(-360deg);
 	}
 }
 
