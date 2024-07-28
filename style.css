@@ -19,7 +19,7 @@ body {
 	background: linear-gradient(90deg, #fbfbf4, #040400);
 	-webkit-background-clip: text;
 	background-clip: text;
-	animation: glitter 0.2s 15;
+	animation: glitter 0.2s linear infinite;
 }
 
 pre {
@@ -71,19 +71,16 @@ main {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	width: 70%;
-	background-image: url(assets/box3.png);
-	background-size: contain;
-	background-repeat: no-repeat;
+	width: 100vw;
+	height: 100vw;
 }
 #planet {
-	width: 50vw;
-	height: 30vh;
-	background-image: url(assets/stein-stare.png);
+	width: 280px;
+	height: 245px;
+	background-image: url(assets/web_element_LowRes.png);
 	background-size: cover;
-	position: static;
+	position: absolute;
 	transform-style: preserve-3d;
-	animation: dizzy 5s infinite;
 }
 
 .moon {
@@ -91,9 +88,10 @@ main {
 	background-size: cover;
 	position: absolute;
 	top: 13%;
-	left: 40%;
+	left: 35%;
 	transform-origin: center;
 	animation: orbit-1 5s linear infinite;
+	transform-style: preserve-3d;
 }
 
 .lowMoon {
@@ -101,18 +99,18 @@ main {
 	background-size: cover;
 	position: absolute;
 	top: 55%;
-	left: 35%;
+	left: 38%;
 	transform-origin: center;
 	animation: orbit-1 5s linear infinite;
 }
 
 @keyframes orbit-1 {
 	0% {
-		transform: rotateY(0deg) rotateX(20deg) translateZ(150px) rotateY(0deg);
+		transform: rotateY(0deg) rotateX(20deg) translateZ(190px) rotateY(0deg);
 	}
 
 	100% {
-		transform: rotateY(360deg) rotateX(20deg) translateZ(150px) rotateY(-360deg);
+		transform: rotateY(360deg) rotateX(20deg) translateZ(190px) rotateY(-360deg);
 	}
 }
 
