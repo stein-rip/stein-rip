@@ -10,13 +10,11 @@ body {
 
 .stein {
 	position: absolute;
-	top: 20px;
+	top: 40px;
 	font-size: 8px;
 	color: black;
 	text-shadow: 2px 4px rgb(184, 56, 56);
-	animation: glitter 2s linear infinite;
-	z-index: 1;
-	transform-style: preserve-3d;
+	animation: glitter 3s linear infinite;
 }
 
 pre {
@@ -73,8 +71,8 @@ main {
 	margin-top: 100px;
 }
 #planet {
-	width: 280px;
-	height: 245px;
+	width: 250px;
+	height: 220px;
 	background-image: url(assets/web_element_LowRes.png);
 	background-size: cover;
 	position: absolute;
@@ -86,7 +84,7 @@ main {
 	background-size: cover;
 	position: absolute;
 	top: 20%;
-	left: 34%;
+	left: 40%;
 	transform-origin: center;
 	animation: orbit-1 linear infinite;
 	transform-style: preserve-3d;
@@ -97,7 +95,7 @@ main {
 	background-size: cover;
 	position: absolute;
 	top: 75%;
-	left: 35%;
+	left: 33%;
 	transform-origin: center;
 	animation: orbit-1 linear infinite;
 	z-index: 1;
@@ -105,11 +103,11 @@ main {
 
 @keyframes orbit-1 {
 	0% {
-		transform: rotateY(0deg) rotateX(20deg) translateZ(180px) rotateY(0deg);
+		transform: rotateY(0deg) rotateX(20deg) translateZ(167px) rotateY(0deg);
 	}
 
 	100% {
-		transform: rotateY(360deg) rotateX(20deg) translateZ(180px) rotateY(-360deg);
+		transform: rotateY(360deg) rotateX(20deg) translateZ(167px) rotateY(-360deg);
 	}
 }
 
