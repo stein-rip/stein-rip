@@ -95,7 +95,7 @@ main {
 	background-size: cover;
 	position: absolute;
 	top: 75%;
-	left: 33%;
+	left: 36%;
 	transform-origin: center;
 	animation: orbit-1 linear infinite;
 	z-index: 1;
