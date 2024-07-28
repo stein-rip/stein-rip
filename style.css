@@ -86,7 +86,7 @@ main {
 	background-size: cover;
 	position: absolute;
 	top: 20%;
-	left: 36%;
+	left: 34%;
 	transform-origin: center;
 	animation: orbit-1 linear infinite;
 	transform-style: preserve-3d;
