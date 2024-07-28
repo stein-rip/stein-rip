@@ -9,17 +9,14 @@ body {
 }
 
 .stein {
-	margin-top: 22px;
+	position: absolute;
+	top: 20px;
 	font-size: 8px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
 	color: black;
 	text-shadow: 2px 4px rgb(184, 56, 56);
-	background: linear-gradient(90deg, #fbfbf4, #040400);
-	-webkit-background-clip: text;
-	background-clip: text;
-	animation: glitter 0.2s linear infinite;
+	animation: glitter 2s linear infinite;
+	z-index: 1;
+	transform-style: preserve-3d;
 }
 
 pre {
@@ -30,7 +27,7 @@ pre {
 @keyframes glitter {
 	0%,
 	100% {
-		color: rgb(238, 233, 236);
+		color: rgb(230, 155, 200);
 		text-shadow: 1px 1px 2px #1ab3f5, -1px -1px 2px #1ab3f5,
 			1px -1px 2px #1ab3f5, -1px 1px 2px #1ab3f5;
 	}
@@ -73,6 +70,7 @@ main {
 	align-items: center;
 	width: 100vw;
 	height: 100vw;
+	margin-top: 100px;
 }
 #planet {
 	width: 280px;
@@ -87,10 +85,10 @@ main {
 	background-image: url(assets/gameboy-venus.png);
 	background-size: cover;
 	position: absolute;
-	top: 13%;
-	left: 35%;
+	top: 20%;
+	left: 36%;
 	transform-origin: center;
-	animation: orbit-1 5s linear infinite;
+	animation: orbit-1 linear infinite;
 	transform-style: preserve-3d;
 }
 
@@ -98,19 +96,20 @@ main {
 	background-image: url(assets/gameboy-venus.png);
 	background-size: cover;
 	position: absolute;
-	top: 55%;
-	left: 38%;
+	top: 75%;
+	left: 35%;
 	transform-origin: center;
-	animation: orbit-1 5s linear infinite;
+	animation: orbit-1 linear infinite;
+	z-index: 1;
 }
 
 @keyframes orbit-1 {
 	0% {
-		transform: rotateY(0deg) rotateX(20deg) translateZ(190px) rotateY(0deg);
+		transform: rotateY(0deg) rotateX(20deg) translateZ(180px) rotateY(0deg);
 	}
 
 	100% {
-		transform: rotateY(360deg) rotateX(20deg) translateZ(190px) rotateY(-360deg);
+		transform: rotateY(360deg) rotateX(20deg) translateZ(180px) rotateY(-360deg);
 	}
 }
 
