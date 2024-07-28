@@ -1,5 +1,6 @@
 body {
 	display: flex;
+	flex-direction: column;
 	align-items: center;
 	justify-content: center;
 	background-color: olive;
@@ -7,63 +8,111 @@ body {
 	width: 100%;
 }
 
-.title {
-	font-family: monospace;
-}
 .stein {
-	font-family: "Times New Roman", Times, serif;
 	margin-top: 22px;
 	font-size: 8px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	animation: color-change 100s infinite;
+	color: black;
+	text-shadow: 2px 4px rgb(184, 56, 56);
+	background: linear-gradient(90deg, #fbfbf4, #040400);
+	-webkit-background-clip: text;
+	background-clip: text;
+	animation: glitter 0.2s 15;
 }
 
-@keyframes color-change {
-	0% {
-		text-shadow: -1px -1px 0 #bc3434, /* Black outline */ 4px -1px 0 #000,
-			-1px 1px 0 #000, 1px 1px 0 #000, 2px 2px hwb(233 51% 11%); /* Colored shadow */
-	}
-	10% {
-		color: rgb(193, 77, 241); /* Light Purple */
-		text-shadow: 23px 23px #a3d43f;
+pre {
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+@keyframes glitter {
+	0%,
+	100% {
+		color: rgb(238, 233, 236);
+		text-shadow: 1px 1px 2px #1ab3f5, -1px -1px 2px #1ab3f5,
+			1px -1px 2px #1ab3f5, -1px 1px 2px #1ab3f5;
 	}
 	20% {
-		color: rgb(166, 134, 241); /* Light Violet */
-		text-shadow: 24px 24px #4050ca;
-	}
-	30% {
-		color: rgb(71, 231, 7); /* Light Blue */
-		text-shadow: 15px 15px #ca7740;
+		color: rgb(231, 137, 44);
+		text-shadow: 2px 2px 3px #1ab3f5, -2px -2px 3px #1ab3f5,
+			2px -2px 3px #1ab3f5, -2px 2px 3px hsl(223, 92%, 54%);
 	}
 	40% {
-		color: rgb(92, 135, 220); /* Blue */
-		text-shadow: 6px 36px #40ca5e;
-	}
-	50% {
-		color: rgb(37, 220, 177); /* Teal */
-		text-shadow: 7px 7px #e38e17;
+		color: rgb(187, 18, 213);
+		text-shadow: 3px 3px 4px #ffd700, -3px -3px 4px #ffd700,
+			3px -3px 4px #ffd700, -3px 3px 4px #ffd700;
 	}
 	60% {
-		color: rgb(37, 220, 62); /* Green */
-		text-shadow: 18px 18px #265b3c;
-	}
-	70% {
-		color: rgb(92, 117, 57); /* Lime Green */
-		text-shadow: 9px 9px #8cca40;
+		text-shadow: 4px 4px 5px #ffd700, -4px -4px 5px #ffd700,
+			4px -4px 5px #ffd700, -4px 4px 5px #ffd700;
 	}
 	80% {
-		color: rgb(218, 144, 37); /* Orange */
-		text-shadow: 10px 10px #252422;
+		color: black;
+		text-shadow: 5px 5px 6px #ffd700, -5px -5px 6px #ffd700,
+			5px -5px 6px #ffd700, -5px 5px 6px #dbd8c8;
 	}
-	90% {
-		color: rgb(218, 37, 62); /* Red */
-		text-shadow: 11px 11px #17abd8;
+}
+
+.glitter-text {
+	font-family: monospace;
+	font-size: 20px;
+	line-height: 1.5;
+	color: transparent;
+	background: linear-gradient(90deg, #fffacd, #ffd700);
+	-webkit-background-clip: text;
+	background-clip: text;
+	animation: glitter 1s infinite;
+}
+
+/* image and orbit  */
+main {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 70%;
+	background-image: url(assets/box3.png);
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+#planet {
+	width: 50vw;
+	height: 30vh;
+	background-image: url(assets/stein-stare.png);
+	background-size: cover;
+	position: static;
+	transform-style: preserve-3d;
+	animation: dizzy 5s infinite;
+}
+
+.moon {
+	background-image: url(assets/gameboy-venus.png);
+	background-size: cover;
+	position: absolute;
+	top: 13%;
+	left: 40%;
+	transform-origin: center;
+	animation: orbit-1 5s linear infinite;
+}
+
+.lowMoon {
+	background-image: url(assets/gameboy-venus.png);
+	background-size: cover;
+	position: absolute;
+	top: 55%;
+	left: 35%;
+	transform-origin: center;
+	animation: orbit-1 5s linear infinite;
+}
+
+@keyframes orbit-1 {
+	0% {
+		transform: rotateY(0deg) rotateX(20deg) translateZ(150px) rotateY(0deg);
 	}
+
 	100% {
-		color: rgb(218, 37, 193); /* Back to Magenta */
-		text-shadow: 12px 12px #1ed8b6;
+		transform: rotateY(360deg) rotateX(20deg) translateZ(150px) rotateY(-360deg);
 	}
 }
 
