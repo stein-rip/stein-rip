@@ -1,7 +1,9 @@
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(
 	4,
-	window.innerWidth / window.innerHeight
+	window.innerWidth / window.innerHeight,
+	0.1,
+	1000
 );
 
 const renderer = new THREE.WebGLRenderer({ alpha: true });
@@ -21,7 +23,7 @@ mtlLoader.load("assets/tamagotchi/materials.mtl.bak", (materials) => {
 	const objLoader = new THREE.OBJLoader();
 	objLoader.setMaterials(materials);
 	objLoader.load("assets/tamagotchi/model.obj", (object) => {
-		object.scale.set(0.5, 0.5, 0.5);
+		object.scale.set(0.48, 0.48, 0.5);
 		object.rotation.y = Math.PI + 2.5;
 		scene.add(object);
 		createMoons(object); // Create and animate moons
@@ -37,22 +39,25 @@ function createMoons(planet) {
 			texture: "assets/notebook_8bit.jpg",
 			size: 0.03,
 			orbitRadiusX: 0.145,
-			orbitRadiusZ: 0.14,
+			orbitRadiusZ: 0.18,
 			tiltAngle: Math.PI / 8,
+			spinSpeed: 0.01, // Add spin speed here
 		},
 		{
 			texture: "assets/star_8bit.jpg",
 			size: 0.025,
 			orbitRadiusX: 0.145,
-			orbitRadiusZ: 0.14,
+			orbitRadiusZ: 0.16,
 			tiltAngle: Math.PI / 8,
+			spinSpeed: 0.02, // Add spin speed here
 		},
 		{
 			texture: "assets/dnadesign.jpg",
 			size: 0.02,
 			orbitRadiusX: 0.145,
-			orbitRadiusZ: 0.14,
+			orbitRadiusZ: 0.135,
 			tiltAngle: Math.PI / 8,
+			spinSpeed: 0.03, // Add spin speed here
 		},
 	];
 
@@ -62,7 +67,8 @@ function createMoons(planet) {
 			data.size,
 			data.orbitRadiusX,
 			data.orbitRadiusZ,
-			data.tiltAngle
+			data.tiltAngle,
+			data.spinSpeed // Pass spin speed to createMoon
 		)
 	);
 	moons.forEach((moon) => scene.add(moon));
@@ -70,13 +76,20 @@ function createMoons(planet) {
 }
 
 // Helper function to create a single moon
-function createMoon(texturePath, size, orbitRadiusX, orbitRadiusZ, tiltAngle) {
+function createMoon(
+	texturePath,
+	size,
+	orbitRadiusX,
+	orbitRadiusZ,
+	tiltAngle,
+	spinSpeed
+) {
 	const moonGeometry = new THREE.SphereGeometry(size, 32, 32);
 	const moonMaterial = new THREE.MeshStandardMaterial({
 		map: new THREE.TextureLoader().load(texturePath),
 	});
 	const moon = new THREE.Mesh(moonGeometry, moonMaterial);
-	moon.userData = { orbitRadiusX, orbitRadiusZ, tiltAngle };
+	moon.userData = { orbitRadiusX, orbitRadiusZ, tiltAngle, spinSpeed }; // Add spinSpeed to userData
 	return moon;
 }
 
@@ -89,9 +102,9 @@ function animateMoons(moons, planet) {
 		angle += 0.004;
 
 		moons.forEach((moon, index) => {
-			const adjustedAngle = angle + (Math.PI / 2) * index;
+			const adjustedAngle = angle + (Math.PI / 1.3) * index;
 			updateMoonPosition(moon, adjustedAngle, planet);
-			moon.rotation.y += 0.02; // Spin around their own axis
+			moon.rotation.y += moon.userData.spinSpeed; // Use spinSpeed for rotation
 		});
 	}
 
