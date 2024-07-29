@@ -42,7 +42,7 @@ function createMoons(planet) {
 		},
 		{
 			texture: "assets/star_8bit.jpg",
-			size: 0.02,
+			size: 0.025,
 			orbitRadiusX: 0.145,
 			orbitRadiusZ: 0.14,
 			tiltAngle: Math.PI / 8,
