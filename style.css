@@ -15,6 +15,7 @@ body {
 	color: black;
 	text-shadow: 2px 4px rgb(184, 56, 56);
 	animation: glitter 3s linear infinite;
+	z-index: 2;
 }
 
 pre {
@@ -61,8 +62,7 @@ pre {
 	animation: glitter 1s infinite;
 }
 
-/* image and orbit  */
-main {
+/* image and orbit main {
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -73,7 +73,6 @@ main {
 #planet {
 	width: 250px;
 	height: 220px;
-	background-image: url(assets/web_element_LowRes.png);
 	background-size: cover;
 	position: absolute;
 	transform-style: preserve-3d;
@@ -109,6 +108,16 @@ main {
 	100% {
 		transform: rotateY(360deg) rotateX(20deg) translateZ(168px) rotateY(-360deg);
 	}
+} */
+
+/* tamagotchi */
+
+canvas {
+	position: absolute;
+	top: -80px;
+	width: 20px;
+	height: 20px;
+	z-index: -1;
 }
 
 @media screen and (min-width: 500px) {

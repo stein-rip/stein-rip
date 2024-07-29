@@ -1,0 +1,18 @@
+newmtl mat12
+  Kd 1.30 0.89 2.19
+
+newmtl mat7
+  Kd 1.94 0.08 0.97
+
+newmtl mat16
+  Kd 0.42 0.56 0.61
+
+newmtl mat17
+  Kd 0.27 1.25 0.39
+
+newmtl mat1
+  Kd 0.31 0.15 2.20
+
+newmtl mat23
+  Kd 0.10 0.5 0.10
+
