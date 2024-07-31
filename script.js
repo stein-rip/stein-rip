@@ -26,7 +26,7 @@ const moonData = [
 		orbitRadiusZ: 4,
 		tiltAngle: Math.PI / 8,
 		spinSpeed: 0.01,
-		clickableMeshSize: 1.0, // Customizable size for clickable mesh
+		clickableMeshSize: 0.6, // Customizable size for clickable mesh
 		url: "https://mem-portal.surge.sh",
 	},
 	{
@@ -46,7 +46,7 @@ const moonData = [
 		orbitRadiusZ: 4,
 		tiltAngle: Math.PI / 8,
 		spinSpeed: 0.01,
-		clickableMeshSize: 1.0, // Customizable size for clickable mesh
+		clickableMeshSize: 0.5, // Customizable size for clickable mesh
 		url: "https://zonked-event.surge.sh",
 	},
 ];
@@ -171,10 +171,12 @@ function onMouseOrTouch(event) {
 		// Use the first touch point
 		x = event.touches[0].clientX;
 		y = event.touches[0].clientY;
+		console.log("Touch event detected at:", x, y); // Log touch coordinates
 	} else {
 		// Use the mouse position
 		x = event.clientX;
 		y = event.clientY;
+		console.log("Mouse event detected at:", x, y); // Log mouse coordinates
 	}
 
 	mouse.x = (x / window.innerWidth) * 2 - 1;
@@ -186,9 +188,16 @@ function onMouseOrTouch(event) {
 		if (object.userData.clickable) {
 			const url = object.userData.url;
 			if (url) {
+				console.log("Opening URL:", url);
 				window.open(url, "_blank");
+			} else {
+				console.log("No URL found for object:", object);
 			}
+		} else {
+			console.log("Object is not clickable:", object);
 		}
+	} else {
+		console.log("No object intersected");
 	}
 }
 
