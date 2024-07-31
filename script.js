@@ -26,6 +26,7 @@ const moonData = [
 		orbitRadiusZ: 4,
 		tiltAngle: Math.PI / 8,
 		spinSpeed: 0.01,
+		clickableMeshSize: 1.0, // Customizable size for clickable mesh
 		url: "https://mem-portal.surge.sh",
 	},
 	{
@@ -35,6 +36,7 @@ const moonData = [
 		orbitRadiusZ: 4,
 		tiltAngle: Math.PI / 8,
 		spinSpeed: 0.02,
+		clickableMeshSize: 1.0, // Customizable size for clickable mesh
 		url: "https://finger-disco.surge.sh",
 	},
 	{
@@ -44,6 +46,7 @@ const moonData = [
 		orbitRadiusZ: 4,
 		tiltAngle: Math.PI / 8,
 		spinSpeed: 0.01,
+		clickableMeshSize: 1.0, // Customizable size for clickable mesh
 		url: "https://zonked-event.surge.sh",
 	},
 ];
@@ -73,6 +76,7 @@ function createMoon(data) {
 		orbitRadiusZ,
 		tiltAngle,
 		spinSpeed,
+		clickableMeshSize,
 		url,
 	} = data;
 	const moonGeometry = new THREE.SphereGeometry(size, 64, 64);
@@ -89,14 +93,23 @@ function createMoon(data) {
 		url,
 	};
 
-	console.log(
-		"Moon created with size:",
-		size,
-		"at position:",
-		moon.position,
-		"with userData:",
-		moon.userData
-	);
+	// Create a larger clickable mesh around the moon
+	const clickableGeometry = new THREE.SphereGeometry(clickableMeshSize, 32, 32);
+	const clickableMaterial = new THREE.MeshBasicMaterial({
+		color: 0xff0000,
+		wireframe: true,
+		transparent: true,
+		opacity: 0.5,
+	});
+	const clickableMesh = new THREE.Mesh(clickableGeometry, clickableMaterial);
+	clickableMesh.userData = {
+		url,
+		clickable: true,
+	};
+
+	moon.add(clickableMesh);
+	clickableMesh.position.set(0, 0, 0);
+
 	return moon;
 }
 
@@ -168,24 +181,14 @@ function onMouseOrTouch(event) {
 	mouse.y = -(y / window.innerHeight) * 2 + 1;
 	raycaster.setFromCamera(mouse, camera);
 	const intersects = raycaster.intersectObjects(scene.children, true);
-	console.log("Intersects:", intersects);
 	if (intersects.length > 0) {
 		const object = intersects[0].object;
-		console.log("Clicked Object:", object);
 		if (object.userData.clickable) {
-			console.log("Clickable object clicked:", object);
 			const url = object.userData.url;
 			if (url) {
-				console.log("Opening URL:", url);
 				window.open(url, "_blank");
-			} else {
-				console.log("No URL found for object:", object);
 			}
-		} else {
-			console.log("Object is not clickable:", object);
 		}
-	} else {
-		console.log("No object intersected");
 	}
 }
 
