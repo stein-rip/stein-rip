@@ -157,7 +157,6 @@ function animate() {
 }
 animate();
 
-// Raycaster for clickable objects
 const raycaster = new THREE.Raycaster();
 const mouse = new THREE.Vector2();
 
@@ -178,7 +177,7 @@ function onPointerEvent(event) {
 	const intersects = raycaster.intersectObjects(scene.children, true);
 	if (intersects.length > 0) {
 		const object = intersects[0].object;
-		if (object.userData.clickable) {
+		if (object.userData.clickable && object.userData.touch) {
 			const url = object.userData.url;
 			if (url) {
 				window.open(url, "_blank");
