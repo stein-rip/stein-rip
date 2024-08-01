@@ -26,7 +26,6 @@ const moonData = [
 		orbitRadiusZ: 4,
 		tiltAngle: Math.PI / 8,
 		spinSpeed: 0.01,
-		clickableMeshSize: 0.6, // Customizable size for clickable mesh
 		url: "https://mem-portal.surge.sh",
 	},
 	{
@@ -36,7 +35,6 @@ const moonData = [
 		orbitRadiusZ: 4,
 		tiltAngle: Math.PI / 8,
 		spinSpeed: 0.02,
-		clickableMeshSize: 1.0, // Customizable size for clickable mesh
 		url: "https://finger-disco.surge.sh",
 	},
 	{
@@ -46,7 +44,6 @@ const moonData = [
 		orbitRadiusZ: 4,
 		tiltAngle: Math.PI / 8,
 		spinSpeed: 0.01,
-		clickableMeshSize: 0.5, // Customizable size for clickable mesh
 		url: "https://zonked-event.surge.sh",
 	},
 ];
@@ -76,13 +73,19 @@ function createMoon(data) {
 		orbitRadiusZ,
 		tiltAngle,
 		spinSpeed,
-		clickableMeshSize,
 		url,
 	} = data;
 	const moonGeometry = new THREE.SphereGeometry(size, 64, 64);
 	const moonMaterial = new THREE.MeshStandardMaterial({
 		map: new THREE.TextureLoader().load(texture),
 	});
+	const clickGeometry = new THREE.SphereGeometry(size * 2, 32, 32);
+	const clickMaterial = new THREE.MeshBasicMaterial({
+		color: 0xff0000,
+		wireframe: true,
+		visible: true,
+	});
+	const clickMesh = new THREE.Mesh(clickGeometry, clickMaterial);
 	const moon = new THREE.Mesh(moonGeometry, moonMaterial);
 	moon.userData = {
 		orbitRadiusX,
@@ -93,23 +96,17 @@ function createMoon(data) {
 		url,
 	};
 
-	// Create a larger clickable mesh around the moon
-	const clickableGeometry = new THREE.SphereGeometry(clickableMeshSize, 32, 32);
-	const clickableMaterial = new THREE.MeshBasicMaterial({
-		color: 0xff0000,
-		wireframe: true,
-		transparent: true,
-		opacity: 0.5,
-	});
-	const clickableMesh = new THREE.Mesh(clickableGeometry, clickableMaterial);
-	clickableMesh.userData = {
-		url,
-		clickable: true,
-	};
+	clickMesh.userData = { url, clickable: true };
+	moon.add(clickMesh); // Add the click mesh as a child of the moon
 
-	moon.add(clickableMesh);
-	clickableMesh.position.set(0, 0, 0);
-
+	console.log(
+		"Moon created with size:",
+		size,
+		"at position:",
+		moon.position,
+		"with userData:",
+		moon.userData
+	);
 	return moon;
 }
 
@@ -164,19 +161,15 @@ animate();
 const raycaster = new THREE.Raycaster();
 const mouse = new THREE.Vector2();
 
-function onMouseOrTouch(event) {
-	// Handle mouse and touch events
+// Handle mouse and touch events
+function onPointerEvent(event) {
 	let x, y;
-	if (event.type === "touchstart") {
-		// Use the first touch point
+	if (event.type === "touchstart" || event.type === "touchmove") {
 		x = event.touches[0].clientX;
 		y = event.touches[0].clientY;
-		console.log("Touch event detected at:", x, y); // Log touch coordinates
 	} else {
-		// Use the mouse position
 		x = event.clientX;
 		y = event.clientY;
-		console.log("Mouse event detected at:", x, y); // Log mouse coordinates
 	}
 
 	mouse.x = (x / window.innerWidth) * 2 - 1;
@@ -188,22 +181,15 @@ function onMouseOrTouch(event) {
 		if (object.userData.clickable) {
 			const url = object.userData.url;
 			if (url) {
-				console.log("Opening URL:", url);
 				window.open(url, "_blank");
-			} else {
-				console.log("No URL found for object:", object);
 			}
-		} else {
-			console.log("Object is not clickable:", object);
 		}
-	} else {
-		console.log("No object intersected");
 	}
 }
 
 // Add event listeners for both mouse and touch events
-window.addEventListener("click", onMouseOrTouch);
-window.addEventListener("touchstart", onMouseOrTouch);
+window.addEventListener("click", onPointerEvent);
+window.addEventListener("touchstart", onPointerEvent);
 
 // Log all objects in the scene
 function logSceneObjects() {
