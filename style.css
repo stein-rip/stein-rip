@@ -115,6 +115,7 @@ pre {
 canvas {
 	position: absolute;
 	top: -50px;
+	display: block;
 }
 
 @media screen and (min-width: 500px) {

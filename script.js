@@ -1,4 +1,3 @@
-// Basic Three.js setup
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(
 	75,
@@ -6,7 +5,7 @@ const camera = new THREE.PerspectiveCamera(
 	0.1,
 	1000
 );
-camera.position.z = 10;
+camera.position.z = 1;
 
 const renderer = new THREE.WebGLRenderer({ alpha: true });
 renderer.setSize(window.innerWidth, window.innerHeight);
@@ -22,105 +21,103 @@ scene.add(directionalLight);
 // Load main object (Tamagotchi)
 let tamagotchi;
 const mtlLoader = new THREE.MTLLoader();
-mtlLoader.load("assets/tamagotchi/materials.mtl.bak", (materials) => {
-	materials.preload();
-	const objLoader = new THREE.OBJLoader();
-	objLoader.setMaterials(materials);
-	objLoader.load("assets/tamagotchi/model.obj", (object) => {
-		object.scale.set(10, 10, 10);
-		object.rotation.y = Math.PI;
-		tamagotchi = object;
-		scene.add(object);
-		createMoons(object);
-		setupDragControls([object]);
-	});
-});
+mtlLoader.load(
+	"assets/tamagotchi/materials.mtl.bak",
+	(materials) => {
+		materials.preload();
+		const objLoader = new THREE.OBJLoader();
+		objLoader.setMaterials(materials);
+		objLoader.load(
+			"assets/tamagotchi/model.obj",
+			(object) => {
+				object.rotation.y = Math.PI + 2.2;
+				object.rotation.x = Math.PI + 3;
+				object.rotation.z = -0.001;
+				tamagotchi = object;
+				scene.add(object);
+				// Add to clickable objects
+				clickableObjects.push(object);
+			},
+			undefined,
+			(error) => {
+				console.error("An error happened while loading the object:", error);
+			}
+		);
+	},
+	undefined,
+	(error) => {
+		console.error("An error happened while loading the materials:", error);
+	}
+);
 
-// Create moons
-function createMoons(planet) {
-	const moonData = [
-		{ size: 0.5, distance: 2, speed: 0.02, color: 0xff0000 },
-		{ size: 0.5, distance: 3, speed: 0.02, color: 0x00ff00 },
-		{ size: 0.5, distance: 4, speed: 0.02, color: 0x0000ff },
-	];
+// Orbit controls
+const orbitControls = new THREE.OrbitControls(camera, renderer.domElement);
+orbitControls.enableDamping = true;
+orbitControls.dampingFactor = 0.25;
+orbitControls.enableZoom = true;
 
-	moonData.forEach((data) => {
-		const moonGeometry = new THREE.SphereGeometry(data.size, 32, 32);
-		const moonMaterial = new THREE.MeshBasicMaterial({ color: data.color });
-		const moon = new THREE.Mesh(moonGeometry, moonMaterial);
-
-		moon.userData = {
-			distance: data.distance,
-			speed: data.speed,
-			angle: 0,
-			clickable: true,
-		};
-		scene.add(moon);
-
-		animateMoons.push(() => {
-			moon.userData.angle += data.speed;
-			moon.position.set(
-				planet.position.x + Math.cos(moon.userData.angle) * data.distance,
-				planet.position.y,
-				planet.position.z + Math.sin(moon.userData.angle) * data.distance
-			);
-		});
-
-		clickableObjects.push(moon);
-	});
-}
-
-// Raycaster for detecting clicks/taps
+// Raycaster for detecting clicks/taps and dragging
 const raycaster = new THREE.Raycaster();
 const mouse = new THREE.Vector2();
 const clickableObjects = [];
 
-function onMouseOrTouch(event) {
-	let x, y;
-	if (event.type === "touchstart") {
-		x = event.touches[0].clientX;
-		y = event.touches[0].clientY;
-	} else {
-		x = event.clientX;
-		y = event.clientY;
-	}
+let selectedObject = null;
+let offset = new THREE.Vector3();
 
-	mouse.x = (x / window.innerWidth) * 2 - 1;
-	mouse.y = -(y / window.innerHeight) * 2 + 1;
+function onMouseDown(event) {
+	event.preventDefault();
+
+	mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+	mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
 
 	raycaster.setFromCamera(mouse, camera);
 	const intersects = raycaster.intersectObjects(clickableObjects);
 
 	if (intersects.length > 0) {
-		const object = intersects[0].object;
-		if (object.userData.clickable) {
-			console.log("Moon clicked/tapped!");
-			// Add your URL handling here
+		selectedObject = intersects[0].object;
+		const intersectsPlane = raycaster.ray.intersectPlane(
+			new THREE.Plane(new THREE.Vector3(0, 0, 1), 0)
+		);
+		offset.copy(intersectsPlane).sub(selectedObject.position);
+	}
+}
+
+function onMouseMove(event) {
+	if (selectedObject) {
+		mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+		mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+
+		raycaster.setFromCamera(mouse, camera);
+		const intersectsPlane = raycaster.ray.intersectPlane(
+			new THREE.Plane(new THREE.Vector3(0, 0, 1), 0)
+		);
+
+		if (intersectsPlane) {
+			selectedObject.position.copy(intersectsPlane.sub(offset));
 		}
 	}
 }
 
-window.addEventListener("click", onMouseOrTouch);
-window.addEventListener("touchstart", onMouseOrTouch);
+function onMouseUp() {
+	selectedObject = null;
+}
+
+window.addEventListener("mousedown", onMouseDown);
+window.addEventListener("mousemove", onMouseMove);
+window.addEventListener("mouseup", onMouseUp);
 
 // Animation loop
-const animateMoons = [];
-
 function animate() {
 	requestAnimationFrame(animate);
-	animateMoons.forEach((fn) => fn());
+	orbitControls.update();
 	renderer.render(scene, camera);
 }
 
 animate();
 
-// Drag controls
-function setupDragControls(objects) {
-	const controls = new THREE.DragControls(objects, camera, renderer.domElement);
-	controls.addEventListener("dragstart", function (event) {
-		event.object.material.emissive.set(0xaaaaaa);
-	});
-	controls.addEventListener("dragend", function (event) {
-		event.object.material.emissive.set(0x000000);
-	});
-}
+// Handle window resize
+window.addEventListener("resize", () => {
+	camera.aspect = window.innerWidth / window.innerHeight;
+	camera.updateProjectionMatrix();
+	renderer.setSize(window.innerWidth, window.innerHeight);
+});
