@@ -1,3 +1,4 @@
+// Scene, Camera, Renderer
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(
 	75,
@@ -5,119 +6,80 @@ const camera = new THREE.PerspectiveCamera(
 	0.1,
 	1000
 );
-camera.position.z = 1;
-
-const renderer = new THREE.WebGLRenderer({ alpha: true });
+const renderer = new THREE.WebGLRenderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
-// Lighting
-const ambientLight = new THREE.AmbientLight(0x404040);
+// Light
+const ambientLight = new THREE.AmbientLight(0x404040, 2); // Soft white light
 scene.add(ambientLight);
 
-const directionalLight = new THREE.DirectionalLight(0xffffff, 0.5);
-scene.add(directionalLight);
+const pointLight = new THREE.PointLight(0xffffff, 1, 100);
+pointLight.position.set(10, 10, 10);
+scene.add(pointLight);
 
-// Load main object (Tamagotchi)
-let tamagotchi;
+// Load OBJ Model
+const objLoader = new THREE.OBJLoader();
 const mtlLoader = new THREE.MTLLoader();
-mtlLoader.load(
-	"assets/tamagotchi/materials.mtl.bak",
-	(materials) => {
-		materials.preload();
-		const objLoader = new THREE.OBJLoader();
-		objLoader.setMaterials(materials);
-		objLoader.load(
-			"assets/tamagotchi/model.obj",
-			(object) => {
-				object.rotation.y = Math.PI + 2.2;
-				object.rotation.x = Math.PI + 3;
-				object.rotation.z = -0.001;
-				tamagotchi = object;
-				scene.add(object);
-				// Add to clickable objects
-				clickableObjects.push(object);
-			},
-			undefined,
-			(error) => {
-				console.error("An error happened while loading the object:", error);
-			}
-		);
-	},
-	undefined,
-	(error) => {
-		console.error("An error happened while loading the materials:", error);
-	}
-);
 
-// Orbit controls
-const orbitControls = new THREE.OrbitControls(camera, renderer.domElement);
-orbitControls.enableDamping = true;
-orbitControls.dampingFactor = 0.25;
-orbitControls.enableZoom = true;
+mtlLoader.load("assets/tamagotchi/materials.mtl.bak", function (materials) {
+	materials.preload();
+	objLoader.setMaterials(materials);
+	objLoader.load("assets/tamagotchi/model.obj", function (object) {
+		object.position.set(0, 0, 0);
+		object.rotation.y = Math.PI + 2.5;
+		object.rotation.x = Math.PI + 3.5;
+		scene.add(object);
+	});
+});
 
-// Raycaster for detecting clicks/taps and dragging
-const raycaster = new THREE.Raycaster();
-const mouse = new THREE.Vector2();
-const clickableObjects = [];
+// Create the rotating sphere
+const textureLoader = new THREE.TextureLoader();
+const sphereRadius = 0.05; // Adjust this value to change the size of the sphere
+const sphereGeometry = new THREE.SphereGeometry(sphereRadius, 32, 32);
+const sphereMaterial = new THREE.MeshBasicMaterial({
+	map: textureLoader.load("assets/planet-1.jpg"),
+});
+const sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
 
-let selectedObject = null;
-let offset = new THREE.Vector3();
+// Set initial position of the sphere
+const orbitRadius = 0.3;
+sphere.position.set(orbitRadius, 0, 0);
+scene.add(sphere);
 
-function onMouseDown(event) {
-	event.preventDefault();
+// Animation variables
+let angle = 0;
+const angularSpeed = 0.01;
 
-	mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
-	mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
-
-	raycaster.setFromCamera(mouse, camera);
-	const intersects = raycaster.intersectObjects(clickableObjects);
-
-	if (intersects.length > 0) {
-		selectedObject = intersects[0].object;
-		const intersectsPlane = raycaster.ray.intersectPlane(
-			new THREE.Plane(new THREE.Vector3(0, 0, 1), 0)
-		);
-		offset.copy(intersectsPlane).sub(selectedObject.position);
-	}
-}
-
-function onMouseMove(event) {
-	if (selectedObject) {
-		mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
-		mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
-
-		raycaster.setFromCamera(mouse, camera);
-		const intersectsPlane = raycaster.ray.intersectPlane(
-			new THREE.Plane(new THREE.Vector3(0, 0, 1), 0)
-		);
-
-		if (intersectsPlane) {
-			selectedObject.position.copy(intersectsPlane.sub(offset));
-		}
-	}
-}
-
-function onMouseUp() {
-	selectedObject = null;
-}
-
-window.addEventListener("mousedown", onMouseDown);
-window.addEventListener("mousemove", onMouseMove);
-window.addEventListener("mouseup", onMouseUp);
+// Camera position
+camera.position.z = 2;
 
 // Animation loop
 function animate() {
 	requestAnimationFrame(animate);
-	orbitControls.update();
+
+	// Rotate the sphere around the origin (0, 0, 0)
+	angle += angularSpeed / 2;
+	sphere.position.x = orbitRadius * Math.cos(angle / 1.2);
+	sphere.position.y = orbitRadius * Math.sin(angle / 1.5);
+	sphere.position.z = orbitRadius * Math.sin(angle / -0.8);
+
+	// Rotate the sphere itself
+	sphere.rotation.y += angularSpeed;
+
 	renderer.render(scene, camera);
 }
 
 animate();
 
-// Handle window resize
 window.addEventListener("resize", () => {
 	camera.aspect = window.innerWidth / window.innerHeight;
 	camera.updateProjectionMatrix();
 	renderer.setSize(window.innerWidth, window.innerHeight);
 });
+
+// OrbitControls
+const controls = new THREE.OrbitControls(camera, renderer.domElement);
+controls.enableDamping = true;
+controls.dampingFactor = 0.25;
+controls.enableZoom = true;
