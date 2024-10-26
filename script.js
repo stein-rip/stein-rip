@@ -27,7 +27,7 @@ mtlLoader.load("assets/tamagotchi/materials.mtl.bak", function (materials) {
 	objLoader.setMaterials(materials);
 	objLoader.load("assets/tamagotchi/model.obj", function (object) {
 		object.position.set(0, 0, 0);
-		object.rotation.y = Math.PI + 2.5;
+		object.rotation.y = Math.PI + 1.7;
 		object.rotation.x = Math.PI + 3.5;
 		scene.add(object);
 	});
@@ -35,7 +35,7 @@ mtlLoader.load("assets/tamagotchi/materials.mtl.bak", function (materials) {
 
 // Create the rotating sphere
 const textureLoader = new THREE.TextureLoader();
-const sphereRadius = 0.05; // Adjust this value to change the size of the sphere
+const sphereRadius = 0.06; // Adjust this value to change the size of the sphere
 const sphereGeometry = new THREE.SphereGeometry(sphereRadius, 32, 32);
 const sphereMaterial = new THREE.MeshBasicMaterial({
 	map: textureLoader.load("assets/planet-1.jpg"),
@@ -43,13 +43,13 @@ const sphereMaterial = new THREE.MeshBasicMaterial({
 const sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
 
 // Set initial position of the sphere
-const orbitRadius = 0.3;
-sphere.position.set(orbitRadius, 0, 0);
+const orbitRadius = 1;
+sphere.position.set(orbitRadius, 2., 1.5);
 scene.add(sphere);
 
 // Animation variables
-let angle = 0;
-const angularSpeed = 0.01;
+let angle = 1;
+const angularSpeed = 5;
 
 // Camera position
 camera.position.z = 2;
@@ -59,10 +59,10 @@ function animate() {
 	requestAnimationFrame(animate);
 
 	// Rotate the sphere around the origin (0, 0, 0)
-	angle += angularSpeed / 2;
-	sphere.position.x = orbitRadius * Math.cos(angle / 1.2);
+	angle += angularSpeed && orbitRadius / 2.1;
+	sphere.position.x = orbitRadius * Math.cos(angle / 3.05);
 	sphere.position.y = orbitRadius * Math.sin(angle / 1.5);
-	sphere.position.z = orbitRadius * Math.sin(angle / -0.8);
+	sphere.position.z = orbitRadius * Math.sin(angle / 1.5);
 
 	// Rotate the sphere itself
 	sphere.rotation.y += angularSpeed;
