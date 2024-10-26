@@ -3,13 +3,20 @@ body {
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	background-color: olive;
+	background-color: black;
 	margin: 0;
 	width: 100%;
 }
 
 canvas {
 	display: block;
+}
+
+a {
+	color: white;
+	font-weight: bold;
+	font: semi-expanded;
+	font-family: monospace;
 }
 
 .stein {
@@ -25,6 +32,11 @@ canvas {
 pre {
 	white-space: pre-wrap;
 	word-break: break-word;
+}
+
+footer {
+	position: absolute;
+	top: 90%;
 }
 
 @keyframes glitter {
