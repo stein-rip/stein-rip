@@ -43,13 +43,13 @@ const sphereMaterial = new THREE.MeshBasicMaterial({
 const sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
 
 // Set initial position of the sphere
-const orbitRadius = .55;
+const orbitRadius = .4;
 sphere.position.set(orbitRadius, .55, .55);
 scene.add(sphere);
 
 // Animation variables
-let angle = 3.34;
-const angularSpeed = .1;
+let angle = 1;
+const angularSpeed = 1;
 
 // Camera position
 camera.position.z = 2;
@@ -58,17 +58,19 @@ camera.position.z = 2;
 function animate() {
 	requestAnimationFrame(animate);
 
-	// Rotate the sphere around the origin (0, 0, 0)
-	angle += (2) && orbitRadius;
-	sphere.position.x = orbitRadius * Math.cos(angle / 5.05);
-	sphere.position.y = orbitRadius * Math.sin(angle / 5.8);
-	sphere.position.z = orbitRadius * Math.sin(angle / 6.5);
+	// Update the angle for rotation
+	angle += angularSpeed * 0.06; // Adjust the multiplier for speed as needed
 
+	// Update position for orbit
+	sphere.position.x = orbitRadius * Math.cos(angle / 5.5);
+	sphere.position.y = orbitRadius * Math.sin(angle / 3.5);
+	sphere.position.z = orbitRadius * Math.sin(angle / 5.5);
 	// Rotate the sphere itself
-	sphere.rotation.y += (.03);
+	sphere.rotation.y += 0.03;
 
 	renderer.render(scene, camera);
 }
+
 
 animate();
 

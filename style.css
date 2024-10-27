@@ -128,6 +128,14 @@ footer {
 	.stein {
 		font-size: 22px;
 	}
+	#planet {
+		width: 250px;
+		height: 220px;
+		#background-size: cover;
+		position: absolute;
+		top: 80%;
+		transform-style: preserve-3d;
+	}
 }
 
 @media screen and (min-width: 700px) {
@@ -139,5 +147,12 @@ footer {
 	.stein {
 		font-size: 12px;
 	}
-}
+	#planet {
+		width: 250px;
+		height: 220px;
+		#background-size: cover;
+		position: absolute;
+		top: 80%;
+		transform-style: preserve-3d;
+	}
 }
