@@ -17,6 +17,7 @@ a {
 	font-weight: bold;
 	font: semi-expanded;
 	font-family: monospace;
+	animation: glitter 3s linear infinite;
 }
 
 .stein {
@@ -81,7 +82,7 @@ footer {
 #planet {
 	width: 250px;
 	height: 220px;
-	background-size: cover;
+	#background-size: cover;
 	position: absolute;
 	transform-style: preserve-3d;
 }
@@ -118,7 +119,7 @@ footer {
 	}
 }
 
-@media screen and (min-width: 500px) {
+@media screen and (min-width: 800px) {
 	body {
 		width: 100vw;
 		background-color: rgb(150, 173, 237);
@@ -126,4 +127,16 @@ footer {
 	.stein {
 		font-size: 22px;
 	}
+}
+
+@media screen and (min-width: 700px) {
+
+	body {
+		width: 100vw;
+		background-color: rgb(150, 173, 237);
+	}
+	.stein {
+		font-size: 12px;
+	}
+}
 }
