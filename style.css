@@ -15,9 +15,9 @@ canvas {
 a {
 	color: white;
 	font-weight: bold;
-	font: semi-expanded;
+	font-size: 30px;
 	font-family: monospace;
-	animation: glitter 3s linear infinite;
+	animation: glitter 50s linear infinite;
 }
 
 .stein {
@@ -26,7 +26,7 @@ a {
 	font-size: 8px;
 	color: black;
 	text-shadow: 2px 4px rgb(184, 56, 56);
-	animation: glitter 3s linear infinite;
+	animation: glitter 2s linear infinite;
 	z-index: 2;
 }
 
@@ -84,6 +84,7 @@ footer {
 	height: 220px;
 	#background-size: cover;
 	position: absolute;
+	top: 50%;
 	transform-style: preserve-3d;
 }
 

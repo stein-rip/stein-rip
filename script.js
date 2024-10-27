@@ -49,7 +49,7 @@ scene.add(sphere);
 
 // Animation variables
 let angle = 3.34;
-const angularSpeed = .05;
+const angularSpeed = .1;
 
 // Camera position
 camera.position.z = 2;
@@ -59,13 +59,13 @@ function animate() {
 	requestAnimationFrame(animate);
 
 	// Rotate the sphere around the origin (0, 0, 0)
-	angle += angularSpeed && orbitRadius / 5.37;
-	sphere.position.x = orbitRadius * Math.cos(angle / 12.05);
-	sphere.position.y = orbitRadius * Math.sin(angle / 7.8);
+	angle += (2) && orbitRadius;
+	sphere.position.x = orbitRadius * Math.cos(angle / 5.05);
+	sphere.position.y = orbitRadius * Math.sin(angle / 5.8);
 	sphere.position.z = orbitRadius * Math.sin(angle / 6.5);
 
 	// Rotate the sphere itself
-	sphere.rotation.y += angularSpeed;
+	sphere.rotation.y += (.03);
 
 	renderer.render(scene, camera);
 }
