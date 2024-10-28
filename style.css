@@ -3,21 +3,10 @@ body {
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
-	background-color: black;
+	background-image: url("assets/web_element.png");
+	background-size: auto;
 	margin: 0;
 	width: 100%;
-}
-
-canvas {
-	display: block;
-}
-
-a {
-	color: white;
-	font-weight: bold;
-	font-size: 30px;
-	font-family: monospace;
-	animation: glitter 50s linear infinite;
 }
 
 .stein {
@@ -26,18 +15,8 @@ a {
 	font-size: 8px;
 	color: black;
 	text-shadow: 2px 4px rgb(184, 56, 56);
-	animation: glitter 2s linear infinite;
+	animation: glitter 3s linear infinite;
 	z-index: 2;
-}
-
-pre {
-	white-space: pre-wrap;
-	word-break: break-word;
-}
-
-footer {
-	position: absolute;
-	top: 90%;
 }
 
 @keyframes glitter {
@@ -68,73 +47,13 @@ footer {
 	}
 }
 
-.glitter-text {
-	font-family: monospace;
-	font-size: 20px;
-	line-height: 1.5;
-	color: transparent;
-	background: linear-gradient(90deg, #fffacd, #ffd700);
-	-webkit-background-clip: text;
-	background-clip: text;
-	animation: glitter 1s infinite;
-}
-
-#planet {
-	width: 250px;
-	height: 220px;
-	#background-size: cover;
-	position: absolute;
-	top: 50%;
-	transform-style: preserve-3d;
-}
-
-.moon {
-	background-image: url(assets/gameboy-venus.png);
-	background-size: cover;
-	position: absolute;
-	top: 20%;
-	left: 40%;
-	transform-origin: center;
-	animation: orbit-1 linear infinite;
-	transform-style: preserve-3d;
-}
-
-.lowMoon {
-	background-image: url(assets/gameboy-venus.png);
-	background-size: cover;
-	position: absolute;
-	top: 75%;
-	left: 34%;
-	transform-origin: center;
-	animation: orbit-1 linear infinite;
-	z-index: 1;
-}
-
-@keyframes orbit-1 {
-	0% {
-		transform: rotateY(0deg) rotateX(20deg) translateZ(168px) rotateY(0deg);
-	}
-
-	100% {
-		transform: rotateY(360deg) rotateX(20deg) translateZ(168px) rotateY(-360deg);
-	}
-}
-
 @media screen and (min-width: 800px) {
 	body {
 		width: 100vw;
-		background-color: rgb(150, 173, 237);
+		background-image: url("assets/web_element.png");
 	}
 	.stein {
 		font-size: 22px;
-	}
-	#planet {
-		width: 250px;
-		height: 220px;
-		#background-size: cover;
-		position: absolute;
-		top: 80%;
-		transform-style: preserve-3d;
 	}
 }
 
@@ -142,17 +61,9 @@ footer {
 
 	body {
 		width: 100vw;
-		background-color: rgb(150, 173, 237);
+		background-image: url("assets/web_element.png");
 	}
 	.stein {
 		font-size: 12px;
-	}
-	#planet {
-		width: 250px;
-		height: 220px;
-		#background-size: cover;
-		position: absolute;
-		top: 80%;
-		transform-style: preserve-3d;
 	}
 }
