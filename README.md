@@ -14,7 +14,6 @@
 
 www.stein.rip
 
-![](https://giphy.com/gifs/ugly-face-woman-gJuTwM3yuQ8f3rE8KV)
 | ------------------------------- |
 
 <details>
