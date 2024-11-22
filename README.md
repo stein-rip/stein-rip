@@ -27,4 +27,3 @@ www.stein.rip
 <li>-  begrudgingly entrepenurial.</li>
 </ul>
 </details>
-```
