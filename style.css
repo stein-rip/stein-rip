@@ -12,7 +12,7 @@ body {
 .stein {
 	position: absolute;
 	top: 40px;
-	font-size: 8px;
+	font-size: 18px;
 	color: black;
 	text-shadow: 2px 4px rgb(184, 56, 56);
 	animation: glitter 3s linear infinite;
