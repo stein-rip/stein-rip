@@ -59,7 +59,7 @@ function animate() {
 	requestAnimationFrame(animate);
 
 	// Update the angle for rotation
-	angle += angularSpeed * 0.06; // Adjust the multiplier for speed as needed
+	angle += angularSpeed * 0.6; // Adjust the multiplier for speed as needed
 
 	// Update position for orbit
 	sphere.position.x = orbitRadius * Math.cos(angle / 5.5);
